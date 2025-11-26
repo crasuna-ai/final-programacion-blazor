@@ -3,7 +3,7 @@
 namespace BlazingPizza;
 
 /// <summary>
-///    /// Represents a customized pizza as part of an order
+///    /// Represents a customized burger as part of an order.
 /// </summary>
 public class Pizza
 {

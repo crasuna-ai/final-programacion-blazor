@@ -1,7 +1,7 @@
 ﻿namespace BlazingPizza;
 
 /// <summary>
-/// Represents a pre-configured template for a pizza a user can order
+/// Represents a pre-configured burger template customers can order.
 /// </summary>
 public class PizzaSpecial
 {
@@ -13,7 +13,7 @@ public class PizzaSpecial
 
     public string Description { get; set; } = string.Empty;
 
-    public string ImageUrl { get; set; } = "img/pizzas/cheese.jpg";
+    public string ImageUrl { get; set; } = "img/burgers/classic-cheeseburger.png";
 
     public string GetFormattedBasePrice() => BasePrice.ToString("0.00");
 }

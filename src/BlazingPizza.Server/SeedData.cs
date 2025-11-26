@@ -128,7 +128,7 @@ public static class SeedData
                 Name = "Classic Cheeseburger",
                 Description = "Pan brioche tostado, carne a la parrilla y una lluvia de queso fundido.",
                 BasePrice = 8.99m,
-                ImageUrl = "img/burgers/classic-cheeseburger.svg",
+                ImageUrl = "https://sevillasecreta.co/wp-content/uploads/2021/05/Mejores-hamburguesas-de-Sevilla-1-1024x822.jpg",
             },
             new PizzaSpecial
             {
@@ -136,7 +136,7 @@ public static class SeedData
                 Name = "BBQ Bacon Crunch",
                 Description = "Tocino crujiente, salsa BBQ ahumada y aros de cebolla para un toque dulce-salado.",
                 BasePrice = 11.50m,
-                ImageUrl = "img/burgers/bbq-bacon.svg",
+                ImageUrl = "https://hips.hearstapps.com/hmg-prod/images/lilwaynegottan-674f8dac05106.jpg?resize=980:*",
             },
             new PizzaSpecial
             {
@@ -144,7 +144,7 @@ public static class SeedData
                 Name = "Jalapeño Fire Burger",
                 Description = "Jalapeños frescos, queso pepper jack y chipotle para los amantes del picante.",
                 BasePrice = 10.25m,
-                ImageUrl = "img/burgers/jalapeno-fire.svg",
+                ImageUrl = "https://www.carniceriademadrid.es/wp-content/uploads/2022/09/smash-burger-que-es.jpg",
             },
             new PizzaSpecial
             {
@@ -152,7 +152,7 @@ public static class SeedData
                 Name = "Double Smash Deluxe",
                 Description = "Doble carne smash, queso cheddar y pepinillos con salsa especial de la casa.",
                 BasePrice = 12.50m,
-                ImageUrl = "img/burgers/double-smash.svg",
+                ImageUrl = "https://www.radioimagina.cl/wp-content/uploads/2024/04/Que-son-las-smash-burgers-La-antigua-tecnica-de-hamburguesas-que-esta-tomando-tendencia-en-Santiago-jpg.webp",
             },
             new PizzaSpecial
             {
@@ -160,7 +160,7 @@ public static class SeedData
                 Name = "Mushroom Swiss Melt",
                 Description = "Champiñones salteados, queso suizo y mayonesa de ajo suave.",
                 BasePrice = 11.25m,
-                ImageUrl = "img/burgers/mushroom-swiss.svg",
+                 ImageUrl = "https://cloudfront-us-east-1.images.arcpublishing.com/infobae/A4G2VEJ4B5EFDM5KIOYEQOJURE.jpg",
             },
             new PizzaSpecial
             {
@@ -168,7 +168,7 @@ public static class SeedData
                 Name = "Veggie Garden Stack",
                 Description = "Hamburguesa vegetariana a la parrilla con lechuga, tomate, pepinillos y pesto verde.",
                 BasePrice = 10.75m,
-                ImageUrl = "img/burgers/veggie-garden.svg",
+                ImageUrl = "https://images.arla.com/recordid/6A59D52C-C439-4D39-959DC3E1B30A5117/picture.jpg?width=500&height=630&mode=max&format=webp",
             },
             new PizzaSpecial
             {
@@ -176,7 +176,7 @@ public static class SeedData
                 Name = "Crispy Chicken Ranch",
                 Description = "Filete de pollo crujiente, aderezo ranch y ensalada fresca.",
                 BasePrice = 10.90m,
-                ImageUrl = "img/burgers/crispy-chicken.svg",
+                ImageUrl = "https://templebarbcn.com/wp-content/uploads/2023/11/BACON_DOBLE-scaled.jpg",
             },
             new PizzaSpecial
             {
@@ -184,15 +184,30 @@ public static class SeedData
                 Name = "Avocado Sunrise",
                 Description = "Carne jugosa con láminas de aguacate, huevo estrellado y mayonesa de limón.",
                 BasePrice = 11.35m,
-                ImageUrl = "img/burgers/avocado-sunrise.svg",
+                ImageUrl = "https://www.unileverfoodsolutions.com.co/dam/global-ufs/mcos/NOLA/calcmenu/recipes/col-recipies/fruco-tomate-cocineros/HAMBURGUESA%201200x709.png",
             },
         };
 
-        var expectedSpecialNames = specials.Select(s => s.Name).ToHashSet(StringComparer.OrdinalIgnoreCase);
-        var currentSpecialNames = db.Specials.Select(s => s.Name).ToList();
+        var currentSpecials = db.Specials.ToList();
+        var expectedByName = specials.ToDictionary(s => s.Name, StringComparer.OrdinalIgnoreCase);
+        var shouldReseed = currentSpecials.Count != specials.Length;
 
-        if (currentSpecialNames.Count == expectedSpecialNames.Count
-            && currentSpecialNames.All(n => expectedSpecialNames.Contains(n)))
+        if (!shouldReseed)
+        {
+            foreach (var current in currentSpecials)
+            {
+                if (!expectedByName.TryGetValue(current.Name, out var expected)
+                    || current.BasePrice != expected.BasePrice
+                    || !string.Equals(current.Description, expected.Description, StringComparison.Ordinal)
+                    || !string.Equals(current.ImageUrl, expected.ImageUrl, StringComparison.OrdinalIgnoreCase))
+                {
+                    shouldReseed = true;
+                    break;
+                }
+            }
+        }
+
+        if (!shouldReseed)
         {
             return;
         }

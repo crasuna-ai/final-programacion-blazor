@@ -1,0 +1,6 @@
+﻿namespace BlazingPizza.Client.wwwroot.img.burgers
+{
+    public class mushroom_swiss
+    {
+    }
+}
