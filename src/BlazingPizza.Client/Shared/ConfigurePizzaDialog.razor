@@ -8,9 +8,18 @@
         <form class="dialog-body">
             <div>
                 <label>Size:</label>
-                <input type="range" min="@Pizza.MinimumSize" max="@Pizza.MaximumSize" step="1" @bind="Pizza.Size" @bind:event="oninput" />
+        <div class="size-options">
+            @foreach (var option in Pizza.SizeOptions)
+            {
+                <label class="size-option">
+                    <input type="radio" name="size" value="@option.Size" checked="@IsSizeSelected(option.Size)" @onchange="@(() => SelectSize(option.Size))" />
+                    <span class="size-name">@option.Name</span>
+                    <span class="size-description">@option.Size"</span>
+                </label>
+            }
+        </div>
                 <span class="size-label">
-                    @(Pizza.Size)" (£@(Pizza.GetFormattedTotalPrice()))
+            @Pizza.GetSizeLabel() (@(Pizza.Size)") (£@(Pizza.GetFormattedTotalPrice()))
                 </span>
             </div>
             <div>
@@ -67,6 +76,13 @@
     [Parameter, EditorRequired] public Pizza Pizza { get; set; } = new();
     [Parameter, EditorRequired] public EventCallback OnCancel { get; set; }
     [Parameter, EditorRequired] public EventCallback OnConfirm { get; set; }
+
+    bool IsSizeSelected(int size) => Pizza.Size == size;
+
+    void SelectSize(int size)
+    {
+        Pizza.Size = size;
+    }
 
     protected async override Task OnInitializedAsync()
     {

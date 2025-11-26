@@ -7,9 +7,20 @@ namespace BlazingPizza;
 /// </summary>
 public class Pizza
 {
-    public const int DefaultSize = 12;
-    public const int MinimumSize = 9;
-    public const int MaximumSize = 17;
+    public const int KidsSize = 60;
+    public const int ClassicSize = 120;
+    public const int SmashSize = 300;
+
+    public static IReadOnlyList<PizzaSizeOption> SizeOptions { get; } = new List<PizzaSizeOption>
+    {
+        new("Kids", KidsSize),
+        new("Classic", ClassicSize),
+        new("Smash", SmashSize)
+    };
+
+    public const int DefaultSize = ClassicSize;
+    public const int MinimumSize = KidsSize;
+    public const int MaximumSize = SmashSize;
 
     public int Id { get; set; }
 
@@ -23,11 +34,28 @@ public class Pizza
 
     public List<PizzaTopping> Toppings { get; set; } = new();
 
+    public static PizzaSizeOption? GetSizeOption(int size) => SizeOptions.FirstOrDefault(o => o.Size == size);
+
     public decimal GetBasePrice()
     {
         if(Special == null) throw new NullReferenceException($"{nameof(Special)} was null when calculating Base Price.");
         return ((decimal)Size / (decimal)DefaultSize) * Special.BasePrice;
     }
+
+    public static string GetSizeLabel(int size)
+    {
+        var option = GetSizeOption(size);
+
+        if (option is not null)
+        {
+            return $"{option.Name} ({option.Size}g)";
+        }
+
+        return $"{size}g";
+    }
+
+    public string GetSizeLabel() => GetSizeLabel(Size);
+
 
     public decimal GetTotalPrice()
     {
@@ -40,6 +68,8 @@ public class Pizza
         return GetTotalPrice().ToString("0.00");
     }
 }
+
+public record PizzaSizeOption(string Name, int Size);
 
 [JsonSourceGenerationOptions(GenerationMode = JsonSourceGenerationMode.Serialization)]
 [JsonSerializable(typeof(Pizza))]
