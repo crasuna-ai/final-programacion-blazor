@@ -42,16 +42,16 @@ public class Pizza
         return ((decimal)Size / (decimal)DefaultSize) * Special.BasePrice;
     }
 
-    public static string GetSizeLabel(int size)
+   public static string GetSizeLabel(int size)
     {
         var option = GetSizeOption(size);
 
         if (option is not null)
         {
-            return $"{option.Name} ({option.Size}g)";
+            return $"{option.Name} ({option.Size}gr)";
         }
 
-        return $"{size}g";
+        return $"{size}gr";
     }
 
     public string GetSizeLabel() => GetSizeLabel(Size);
@@ -65,7 +65,7 @@ public class Pizza
 
     public string GetFormattedTotalPrice()
     {
-        return GetTotalPrice().ToString("0.00");
+        return CurrencyFormatter.FormatCop(GetTotalPrice());
     }
 }
 

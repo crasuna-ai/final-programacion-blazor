@@ -14,13 +14,11 @@
                 <label class="size-option">
                     <input type="radio" name="size" value="@option.Size" checked="@IsSizeSelected(option.Size)" @onchange="@(() => SelectSize(option.Size))" />
                     <span class="size-name">@option.Name</span>
-                    <span class="size-description">@option.Size"</span>
+                    <span class="size-description">@option.Size gr</span>
                 </label>
             }
         </div>
-                <span class="size-label">
-            @Pizza.GetSizeLabel() (@(Pizza.Size)") (£@(Pizza.GetFormattedTotalPrice()))
-                </span>
+              
             </div>
             <div>
                 <label>Extra Toppings:</label>
@@ -40,7 +38,7 @@
                         <option value="-1" disabled selected>(select)</option>
                         @for (var i = 0; i < toppings.Count; i++)
                         {
-                            <option value="@i">@toppings[i].Name - (£@(toppings[i].GetFormattedPrice()))</option>
+                    <option value="@i">@toppings[i].Name - (@(toppings[i].GetFormattedPrice()))</option>
                         }
                     </select>
                 }

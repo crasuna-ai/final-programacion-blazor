@@ -15,5 +15,5 @@ public class PizzaSpecial
 
     public string ImageUrl { get; set; } = "img/burgers/classic-cheeseburger.png";
 
-    public string GetFormattedBasePrice() => BasePrice.ToString("0.00");
+    public string GetFormattedBasePrice() => CurrencyFormatter.FormatCop(BasePrice);
 }

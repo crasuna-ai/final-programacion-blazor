@@ -2,9 +2,9 @@
 {
     <p>
         <strong>
-            @pizza.GetSizeLabel() (@(pizza.Size)")
+            @pizza.GetSizeLabel()
             @pizza.Special?.Name
-            (£@pizza.GetFormattedTotalPrice())
+            (@pizza.GetFormattedTotalPrice())
         </strong>
     </p>
 
@@ -19,7 +19,7 @@
 <p>
     <strong>
         Total price:
-        £@Order.GetFormattedTotalPrice()
+        @Order.GetFormattedTotalPrice()
     </strong>
 </p>
 
