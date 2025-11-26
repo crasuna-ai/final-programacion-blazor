@@ -1,0 +1,25 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 533">
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0%" stop-color="#f9f4ee" />
+      <stop offset="100%" stop-color="#f1e4d6" />
+    </linearGradient>
+  </defs>
+  <rect width="800" height="533" fill="url(#bg)" />
+  <rect x="120" y="150" width="560" height="150" rx="80" fill="#f1c27d" stroke="#c78f4a" stroke-width="6" />
+  <rect x="135" y="300" width="530" height="35" rx="18" fill="#d37b44" stroke="#7a4a1b" stroke-width="3" />
+  <rect x="135" y="335" width="530" height="35" rx="18" fill="#60aa4f" stroke="#5a3817" stroke-width="3" />
+  <rect x="135" y="370" width="530" height="32" rx="16" fill="#5a3817" stroke="#3c270f" stroke-width="3" />
+  <rect x="135" y="402" width="530" height="32" rx="16" fill="#f6d7a8" stroke="#c78f4a" stroke-width="3" />
+  <g fill="#faedcd">
+    <ellipse cx="210" cy="210" rx="9" ry="6" />
+    <ellipse cx="260" cy="185" rx="8" ry="5" />
+    <ellipse cx="320" cy="225" rx="9" ry="6" />
+    <ellipse cx="380" cy="190" rx="8" ry="5" />
+    <ellipse cx="440" cy="215" rx="9" ry="6" />
+    <ellipse cx="510" cy="185" rx="8" ry="5" />
+    <ellipse cx="560" cy="220" rx="9" ry="6" />
+    <ellipse cx="610" cy="195" rx="8" ry="5" />
+  </g>
+  <text x="50%" y="90" font-size="46" text-anchor="middle" fill="#3b2d22" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-weight="700">Garden Veggie</text>
+</svg>

@@ -30,10 +30,8 @@ var scopeFactory = app.Services.GetRequiredService<IServiceScopeFactory>();
 using (var scope = scopeFactory.CreateScope())
 {
     var db = scope.ServiceProvider.GetRequiredService<PizzaStoreContext>();
-    if (db.Database.EnsureCreated())
-    {
-        SeedData.Initialize(db);
-    }
+    db.Database.EnsureCreated();
+    SeedData.Initialize(db);
 }
 
 // Configure the HTTP request pipeline.

@@ -1,0 +1,23 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 520" role="img" aria-labelledby="title">
+	<title>Jalapeño Fire Burger</title>
+	<defs>
+		<linearGradient id="fireGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+			<stop offset="0%" stop-color="#ffd54f"/>
+			<stop offset="100%" stop-color="#e53935"/>
+		</linearGradient>
+	</defs>
+	<rect width="800" height="520" rx="28" fill="url(#fireGradient)"/>
+	<g transform="translate(110 150)">
+		<rect x="40" y="210" width="540" height="60" rx="28" fill="#6a1b09"/>
+		<rect x="30" y="170" width="560" height="46" rx="20" fill="#c62828"/>
+		<rect x="20" y="130" width="580" height="46" rx="18" fill="#ef6c00"/>
+		<rect x="10" y="80" width="600" height="70" rx="35" fill="#f4c430"/>
+		<circle cx="120" cy="105" r="6" fill="#fff7d6"/>
+		<circle cx="210" cy="95" r="6" fill="#fff7d6"/>
+		<circle cx="300" cy="110" r="6" fill="#fff7d6"/>
+		<circle cx="390" cy="92" r="6" fill="#fff7d6"/>
+		<circle cx="480" cy="108" r="6" fill="#fff7d6"/>
+	</g>
+	<text x="400" y="90" font-size="54" font-family="'Bahnschrift','Segoe UI',sans-serif" text-anchor="middle" fill="#3c0c00" font-weight="800">Jalapeño Fire Burger</text>
+	<text x="400" y="470" font-size="26" font-family="'Segoe UI',sans-serif" text-anchor="middle" fill="#2b0a00">Picante y llena de sabor ahumado.</text>
+</svg>

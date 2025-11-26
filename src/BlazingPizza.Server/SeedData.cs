@@ -1,4 +1,7 @@
-﻿namespace BlazingPizza.Server;
+﻿using System;
+using System.Linq;
+
+namespace BlazingPizza.Server;
 
 public static class SeedData
 {
@@ -6,184 +9,197 @@ public static class SeedData
     {
         var toppings = new Topping[]
         {
-            new Topping()
+            new Topping
             {
-                    Name = "Extra cheese",
-                    Price = 2.50m,
+                Name = "Queso extra",
+                Price = 2.50m,
             },
-            new Topping()
+            new Topping
             {
-                    Name = "American bacon",
-                    Price = 2.99m,
+                Name = "Tocino ahumado",
+                Price = 2.99m,
             },
-            new Topping()
+            new Topping
             {
-                    Name = "British bacon",
-                    Price = 2.99m,
+                Name = "Jalapeños",
+                Price = 1.20m,
             },
-            new Topping()
+            new Topping
             {
-                    Name = "Canadian bacon",
-                    Price = 2.99m,
+                Name = "Champiñones",
+                Price = 1.50m,
             },
-            new Topping()
+            new Topping
             {
-                    Name = "Tea and crumpets",
-                    Price = 5.00m
+                Name = "Cebolla caramelizada",
+                Price = 1.75m,
             },
-            new Topping()
+            new Topping
             {
-                    Name = "Fresh-baked scones",
-                    Price = 4.50m,
+                Name = "Lechuga fresca",
+                Price = 0.90m,
             },
-            new Topping()
+            new Topping
             {
-                    Name = "Bell peppers",
-                    Price = 1.00m,
+                Name = "Tomate en rodajas",
+                Price = 0.90m,
             },
-            new Topping()
+            new Topping
             {
-                    Name = "Onions",
-                    Price = 1.00m,
+                Name = "Aguacate",
+                Price = 2.10m,
             },
-            new Topping()
+            new Topping
             {
-                    Name = "Mushrooms",
-                    Price = 1.00m,
+                Name = "Pepinillos",
+                Price = 0.80m,
             },
-            new Topping()
+            new Topping
             {
-                    Name = "Pepperoni",
-                    Price = 1.00m,
+                Name = "Salsa BBQ",
+                Price = 1.10m,
             },
-            new Topping()
+            new Topping
             {
-                    Name = "Duck sausage",
-                    Price = 3.20m,
+                Name = "Salsa de chipotle",
+                Price = 1.30m,
             },
-            new Topping()
+            new Topping
             {
-                    Name = "Venison meatballs",
-                    Price = 2.50m,
+                Name = "Crispy onions",
+                Price = 1.60m,
             },
-            new Topping()
+            new Topping
             {
-                    Name = "Served on a silver platter",
-                    Price = 250.99m,
+                Name = "Tocino crujiente",
+                Price = 1.95m,
             },
-            new Topping()
+            new Topping
             {
-                    Name = "Lobster on top",
-                    Price = 64.50m,
+                Name = "Huevo estrellado",
+                Price = 2.40m,
             },
-            new Topping()
+            new Topping
             {
-                    Name = "Sturgeon caviar",
-                    Price = 101.75m,
+                Name = "Queso suizo",
+                Price = 1.80m,
             },
-            new Topping()
+            new Topping
             {
-                    Name = "Artichoke hearts",
-                    Price = 3.40m,
+                Name = "Queso cheddar",
+                Price = 1.70m,
             },
-            new Topping()
+            new Topping
             {
-                    Name = "Fresh tomatoes",
-                    Price = 1.50m,
+                Name = "Pepper jack",
+                Price = 1.60m,
             },
-            new Topping()
+            new Topping
             {
-                    Name = "Basil",
-                    Price = 1.50m,
+                Name = "Mostaza de dijón",
+                Price = 0.95m,
             },
-            new Topping()
+            new Topping
             {
-                    Name = "Steak (medium-rare)",
-                    Price = 8.50m,
+                Name = "Tiras de pollo crujiente",
+                Price = 3.75m,
             },
-            new Topping()
+            new Topping
             {
-                    Name = "Blazing hot peppers",
-                    Price = 4.20m,
+                Name = "Pimientos asados",
+                Price = 1.40m,
             },
-            new Topping()
+            new Topping
             {
-                    Name = "Buffalo chicken",
-                    Price = 5.00m,
+                Name = "Chips de papa",
+                Price = 1.10m,
             },
-            new Topping()
+            new Topping
             {
-                    Name = "Blue cheese",
-                    Price = 2.50m,
+                Name = "Queso azul",
+                Price = 2.20m,
             },
         };
 
         var specials = new PizzaSpecial[]
         {
-            new PizzaSpecial()
+            new PizzaSpecial
             {
-                    Name = "Basic Cheese Pizza",
-                    Description = "It's cheesy and delicious. Why wouldn't you want one?",
-                    BasePrice = 9.99m,
-                    ImageUrl = "img/pizzas/cheese.jpg",
+                Name = "Classic Cheeseburger",
+                Description = "Pan brioche tostado, carne a la parrilla y una lluvia de queso fundido.",
+                BasePrice = 8.99m,
+                ImageUrl = "img/burgers/classic-cheeseburger.svg",
             },
-            new PizzaSpecial()
+            new PizzaSpecial
             {
-                    Id = 2,
-                    Name = "The Baconatorizor",
-                    Description = "It has EVERY kind of bacon",
-                    BasePrice = 11.99m,
-                    ImageUrl = "img/pizzas/bacon.jpg",
+                Id = 2,
+                Name = "BBQ Bacon Crunch",
+                Description = "Tocino crujiente, salsa BBQ ahumada y aros de cebolla para un toque dulce-salado.",
+                BasePrice = 11.50m,
+                ImageUrl = "img/burgers/bbq-bacon.svg",
             },
-            new PizzaSpecial()
+            new PizzaSpecial
             {
-                    Id = 3,
-                    Name = "Classic pepperoni",
-                    Description = "It's the pizza you grew up with, but Blazing hot!",
-                    BasePrice = 10.50m,
-                    ImageUrl = "img/pizzas/pepperoni.jpg",
+                Id = 3,
+                Name = "Jalapeño Fire Burger",
+                Description = "Jalapeños frescos, queso pepper jack y chipotle para los amantes del picante.",
+                BasePrice = 10.25m,
+                ImageUrl = "img/burgers/jalapeno-fire.svg",
             },
-            new PizzaSpecial()
+            new PizzaSpecial
             {
-                    Id = 4,
-                    Name = "Buffalo chicken",
-                    Description = "Spicy chicken, hot sauce and bleu cheese, guaranteed to warm you up",
-                    BasePrice = 12.75m,
-                    ImageUrl = "img/pizzas/meaty.jpg",
+                Id = 4,
+                Name = "Double Smash Deluxe",
+                Description = "Doble carne smash, queso cheddar y pepinillos con salsa especial de la casa.",
+                BasePrice = 12.50m,
+                ImageUrl = "img/burgers/double-smash.svg",
             },
-            new PizzaSpecial()
+            new PizzaSpecial
             {
-                    Id = 5,
-                    Name = "Mushroom Lovers",
-                    Description = "It has mushrooms. Isn't that obvious?",
-                    BasePrice = 11.00m,
-                    ImageUrl = "img/pizzas/mushroom.jpg",
+                Id = 5,
+                Name = "Mushroom Swiss Melt",
+                Description = "Champiñones salteados, queso suizo y mayonesa de ajo suave.",
+                BasePrice = 11.25m,
+                ImageUrl = "img/burgers/mushroom-swiss.svg",
             },
-            new PizzaSpecial()
+            new PizzaSpecial
             {
-                    Id = 6,
-                    Name = "The Brit",
-                    Description = "When in London...",
-                    BasePrice = 10.25m,
-                    ImageUrl = "img/pizzas/brit.jpg",
+                Id = 6,
+                Name = "Veggie Garden Stack",
+                Description = "Hamburguesa vegetariana a la parrilla con lechuga, tomate, pepinillos y pesto verde.",
+                BasePrice = 10.75m,
+                ImageUrl = "img/burgers/veggie-garden.svg",
             },
-            new PizzaSpecial()
+            new PizzaSpecial
             {
-                    Id = 7,
-                    Name = "Veggie Delight",
-                    Description = "It's like salad, but on a pizza",
-                    BasePrice = 11.50m,
-                    ImageUrl = "img/pizzas/salad.jpg",
+                Id = 7,
+                Name = "Crispy Chicken Ranch",
+                Description = "Filete de pollo crujiente, aderezo ranch y ensalada fresca.",
+                BasePrice = 10.90m,
+                ImageUrl = "img/burgers/crispy-chicken.svg",
             },
-            new PizzaSpecial()
+            new PizzaSpecial
             {
-                    Id = 8,
-                    Name = "Margherita",
-                    Description = "Traditional Italian pizza with tomatoes and basil",
-                    BasePrice = 9.99m,
-                    ImageUrl = "img/pizzas/margherita.jpg",
+                Id = 8,
+                Name = "Avocado Sunrise",
+                Description = "Carne jugosa con láminas de aguacate, huevo estrellado y mayonesa de limón.",
+                BasePrice = 11.35m,
+                ImageUrl = "img/burgers/avocado-sunrise.svg",
             },
         };
+
+        var expectedSpecialNames = specials.Select(s => s.Name).ToHashSet(StringComparer.OrdinalIgnoreCase);
+        var currentSpecialNames = db.Specials.Select(s => s.Name).ToList();
+
+        if (currentSpecialNames.Count == expectedSpecialNames.Count
+            && currentSpecialNames.All(n => expectedSpecialNames.Contains(n)))
+        {
+            return;
+        }
+
+        db.Toppings.RemoveRange(db.Toppings);
+        db.Specials.RemoveRange(db.Specials);
+        db.SaveChanges();
 
         db.Toppings.AddRange(toppings);
         db.Specials.AddRange(specials);

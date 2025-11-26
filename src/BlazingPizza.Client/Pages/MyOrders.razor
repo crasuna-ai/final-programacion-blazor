@@ -2,14 +2,14 @@
 @attribute [Authorize]
 @inject OrdersClient OrdersClient
 
-<PageTitle>Blazing Pizza - My Orders</PageTitle>
+<PageTitle>Blazing Burgers - My Orders</PageTitle>
 
 <div class="main">
     <TemplatedList Loader="@LoadOrders" ListGroupClass="orders-list">
         <Loading>Loading...</Loading>
         <Empty>
             <h2>No orders placed</h2>
-            <a class="btn btn-success" href="">Order some pizza</a>
+            <a class="btn btn-success" href="">¡Ordena hamburguesas!</a>
         </Empty>
         <Item Context="item">
             <div class="col">
